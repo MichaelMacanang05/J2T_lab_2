@@ -1,26 +1,14 @@
-<?php
-$servername = "localhost";
-$username = "Michael";
-$password = "Michael";
-$dbname = "Macanang";
+<html>
+<body>
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+<form action="welcome.php" method="post">
+name: <input type="text" name="fname"><br>
+lastname: <input type="text" name="lname"><br>
+age: <input type="text" name="age"><br>
+email: <input type="text" name="email"><br>
+detail: <input type="text" name="detail"><br>
+<input type="submit">
+</form>
 
-$sql = "SELECT id, firstname, lastname FROM macanang";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-  }
-} else {
-  echo "0 results";
-}
-$conn->close();
-?>
+</body>
+</html>
